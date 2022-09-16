@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @book = Book.find(book_params)
   end
 
   def edit
@@ -22,6 +23,6 @@ class BooksController < ApplicationController
  private
 
  def book_params
-  params.require(:book).permit(:本のタイトル :感想)
+  params.require(:book).permit(title:本のタイトル, body:感想)
  end
 end
