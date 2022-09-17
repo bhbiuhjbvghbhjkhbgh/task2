@@ -1,5 +1,6 @@
 <h1>Books</h1>
-<table>
+<% @books.each do |book| %>
+ <table>
     <thead>
         <tr>
             <th>Title</th>
@@ -9,8 +10,8 @@
     </thead>
     <tbody>
       <tr>
-        <td>トラブル知らずのシステム設計</td>
-        <td>システム設計の要点を図解で説明してくれます</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99496" href="/books/99496">Show</a>
         </td>
@@ -22,8 +23,8 @@
         </td>
       </tr>
       <tr>
-        <td>たのしいRuby</td>
-        <td>Rubyの入門におすすめです</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99497" href="/books/99497">Show</a>
         </td>
@@ -35,8 +36,8 @@
         </td>
       </tr>
       <tr>
-        <td>入門Git</td>
-        <td>gitについての基本操作から内部構造まで解説してくれます</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99509" href="/books/99509">Show</a>
         </td>
@@ -48,8 +49,8 @@
         </td>
       </tr>
       <tr>
-        <td>アルゴリズム図鑑</td>
-        <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99510" href="/books/99510">Show</a>
         </td>
@@ -61,8 +62,8 @@
         </td>
       </tr>
       <tr>
-        <td>達人プログラマー</td>
-        <td>プログラマ入門者は必読！</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99511" href="/books/99511">Show</a>
         </td>
@@ -74,8 +75,8 @@
         </td>
       </tr>
       <tr>
-        <td>データベース実践入門</td>
-        <td>効率的なSQL文を教えてくれます</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99512" href="/books/99512">Show</a>
         </td>
@@ -87,8 +88,8 @@
         </td>
       </tr>
       <tr>
-        <td>リーダブルコード2</td>
-        <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99513" href="/books/99513">Show</a>
         </td>
@@ -100,8 +101,8 @@
         </td>
       </tr>
       <tr>
-        <td>リーダブルコード</td>
-        <td>より良いコードを書くためのシンプルで実践的なテクニック.</td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         <td>
             <a class="show_99506" href="/books/99506">Show</a>
         </td>
@@ -113,7 +114,18 @@
         </td>
       </tr>
     </tbody>
-</table>
-<2>New book</2>
-<%= form_with model: @book do |f| %>
+ </table>
+<% end %>
+<h2>New book</h2>
+<%= form_with model: @book, url:'/books', method: :post do |f| %>
+
+ <h5>Title</h5>
+ <%= f.text_field :title %>
+
+ <h5>Body</h5>
+ <%= f.text_area :body %>
+
+ <h5>
+  <%= f.submit 'create book' %>
+ </h5>
 <% end %>
