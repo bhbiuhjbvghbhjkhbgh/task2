@@ -1,0 +1,37 @@
+<h1>Books</h1>
+  <table>
+   <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+   </thead>
+   <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td>
+            <a class="show_99880" href="/books/99880">Show</a>
+        </td>
+        <td>
+            <a class="edit_99880" href="/books/99880/edit">Edit</a>
+        </td>
+        <td>
+            <a data-confirm="Are you sure?" class="destroy_99880" rel="nofollow" data-method="delete" href="/books/99880">Destroy</a>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+<h2>New book</h2>
+<%= form_with model: @book, url:'/books', method: :post do |f| %>
+
+ <h5>Title</h5>
+ <%= f.text_field :title %>
+
+ <h5>Body</h5>
+ <%= f.text_area :body %>
+ <h5><%= f.submit 'Create Book' %></h5>
+<% end %>
