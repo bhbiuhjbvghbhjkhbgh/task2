@@ -13,7 +13,9 @@
         <td><%= book.title %></td>
         <td><%= book.body %></td>
         <td>
-            <a class="show_99880" href="/books/99880">Show</a>
+            <span>
+                <%= link_to 'Show', book_path(book.id) %>
+            </span>
         </td>
         <td>
             <a class="edit_99880" href="/books/99880/edit">Edit</a>

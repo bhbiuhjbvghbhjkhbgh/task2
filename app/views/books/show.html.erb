@@ -1,122 +1,26 @@
-<head>
-    <h1>WebCampBackendNew</h1>
-</head>
-<body>
- <h1>Books</h1>
- <% @books.each do |book| %>
-  <table>
-   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-   </thead>
+<table>
+ <tr>
+  <td>
+    <h2>Title:</h2>
+  </td>
+  <td>
+    <p><%= @book.title %></p>
+  </td>
+ </tr>
+</table>
 
-   <tbody>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99880" href="/books/99880">Show</a>
-        </td>
-        <td>
-            <a class="edit_99880" href="/books/99880/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99880" rel="nofollow" data-method="delete" href="/books/99880">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99881" href="/books/99881">Show</a>
-        </td>
-        <td>
-            <a class="edit_99881" href="/books/99881/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99881" rel="nofollow" data-method="delete" href="/books/99881">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99882" href="/books/99882">Show</a>
-        </td>
-        <td>
-            <a class="edit_99882" href="/books/99882/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99882" rel="nofollow" data-method="delete" href="/books/99882">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99883" href="/books/99883">Show</a>
-        </td>
-        <td>
-            <a class="edit_99883" href="/books/99883/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99883" rel="nofollow" data-method="delete" href="/books/99883">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99884" href="/books/99884">Show</a>
-        </td>
-        <td>
-            <a class="edit_99884" href="/books/99884/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99884" rel="nofollow" data-method="delete" href="/books/99884">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99885" href="/books/99885">Show</a>
-        </td>
-        <td>
-            <a class="edit_99885" href="/books/99885/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99885" rel="nofollow" data-method="delete" href="/books/99885">Destroy</a>
-        </td>
-      </tr>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td>
-            <a class="show_99886" href="/books/99886">Show</a>
-        </td>
-        <td>
-            <a class="edit_99886" href="/books/99886/edit">Edit</a>
-        </td>
-        <td>
-            <a data-confirm="Are you sure?" class="destroy_99886" rel="nofollow" data-method="delete" href="/books/99886">Destroy</a>
-        </td>
-      </tr>
-   </tbody>
-  </table>
- <% end %>
-</body>
-<h2>New book</h2>
-<%= form_with model: @book, url:'/books', method: :post do |f| %>
+<table>
+ <tr>
+  <td>
+   <h2>Body:</h2>
+  </td>
+  <td>
+   <p><%= @book.body %></p>
+  </td>
+ </tr>
+</table>
 
- <h5>Title</h5>
- <%= f.text_field :title %>
+<%= link_to 'Edit', edit_book_path(book.id) %>
 
- <h5>Body</h5>
- <%= f.text_area :body %>
- <h5><%= f.submit 'Create Book' %></h5>
-<% end %>
+<%= link_to 'Back', "/books" %>
 
