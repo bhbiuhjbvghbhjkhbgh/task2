@@ -18,10 +18,10 @@
             </span>
         </td>
         <td>
-            <a class="edit_99880" href="/books/99880/edit">Edit</a>
+            <%= link_to 'Edit', edit_book_path(book.id) %>
         </td>
         <td>
-            <a data-confirm="Are you sure?" class="destroy_99880" rel="nofollow" data-method="delete" href="/books/99880">Destroy</a>
+            <%= link_to 'Destroy', book_path(book.id), method: :delete %>
         </td>
       </tr>
     </tbody>
