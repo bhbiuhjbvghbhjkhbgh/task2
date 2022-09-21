@@ -27,6 +27,7 @@
     </tbody>
   <% end %>
   </table>
+
 <h2>New book</h2>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>件のエラーが発生しました
@@ -36,12 +37,12 @@
    <% end %>
   </ul>
 <% end %>
-<%= form_with model: @book, url:'/books', method: :post do |f| %>
 
+<%= form_with model: @book, url:'/books', method: :post do |f| %>
  <h5>Title</h5>
  <%= f.text_field :title %>
 
  <h5>Body</h5>
  <%= f.text_area :body %>
- <h5><%= f.submit 'Create Book' %></h5>
+ <p><%= f.submit 'Create Book' %></p>
 <% end %>
